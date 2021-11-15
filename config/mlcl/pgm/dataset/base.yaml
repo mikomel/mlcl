@@ -1,0 +1,42 @@
+generalisation_split: neutral
+train:
+  data_dir: ${datasets_dir}/${pgm_dataset_name}/${mlcl.pgm.dataset.generalisation_split}
+  splits:
+    - ${DatasetSplit:TRAIN}
+  augmentor:
+    _target_: mlcl.pgm.data.augmentor.Augmentor
+    p: 0.5
+    transforms:
+      - ${Augmentation:VerticalFlip,p,0.25}
+      - ${Augmentation:HorizontalFlip,p,0.25}
+      - ${Augmentation:RandomRotate90,p,0.25}
+      - ${Augmentation:Rotate,p,0.25}
+      - ${Augmentation:Transpose,p,0.25}
+      - >-
+        ${Augmentation:OneOf,p,0.25,transforms,
+        ${List:
+        ${Augmentation:RandomGridShuffle,grid,${Tuple:2,2}},
+        ${Augmentation:RandomGridShuffle,grid,${Tuple:3,3}}}}
+      - >-
+        ${Augmentation:OneOf,p,0.5,transforms,
+        ${List:
+        ${Augmentation:Roll,p,0.4,max_horizontal_shift,10,max_vertical_shift,80},
+        ${Augmentation:HorizontalRoll,p,0.3,max_shift,80},
+        ${Augmentation:VerticalRoll,p,0.3,max_shift,80}}}
+    position_preserving_transforms:
+      - ${Augmentation:VerticalFlip,p,0.25}
+      - ${Augmentation:HorizontalFlip,p,0.25}
+      - ${Augmentation:RandomRotate90,p,0.25}
+      - ${Augmentation:Rotate,p,0.25}
+      - ${Augmentation:Transpose,p,0.25}
+  double_downscale_images: True
+val:
+  data_dir: ${datasets_dir}/${pgm_dataset_name}/${mlcl.pgm.dataset.generalisation_split}
+  splits:
+    - ${DatasetSplit:VAL}
+  double_downscale_images: True
+test:
+  data_dir: ${datasets_dir}/${pgm_dataset_name}/${mlcl.pgm.dataset.generalisation_split}
+  splits:
+    - ${DatasetSplit:TEST}
+  double_downscale_images: True

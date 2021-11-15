@@ -1,0 +1,2 @@
+_target_: mlcl.models.sran.SRAN
+image_size: 80

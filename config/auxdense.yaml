@@ -1,0 +1,14 @@
+defaults:
+  - default
+  - _self_
+  - override mlcl/pgm/dataset: auxiliary
+  - override mlcl/pgm/module: auxiliary
+  - override mlcl/raven/dataset: auxiliary
+  - override mlcl/raven/module: auxiliary
+mlcl:
+  pgm:
+    dataset:
+      rule_encoder: ${PgmRuleEncoder:dense}
+  raven:
+    dataset:
+      rule_encoder: ${RavenRuleEncoder:dense}

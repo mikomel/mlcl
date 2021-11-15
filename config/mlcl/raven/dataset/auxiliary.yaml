@@ -1,0 +1,12 @@
+defaults:
+  - supervised
+rule_encoder: ${RavenRuleEncoder:dense}
+train:
+  _target_: mlcl.raven.data.auxiliary_dataset.RavenAuxiliaryDataset
+  rule_encoder: ${mlcl.raven.dataset.rule_encoder}
+val:
+  _target_: mlcl.raven.data.auxiliary_dataset.RavenAuxiliaryDataset
+  rule_encoder: ${mlcl.raven.dataset.rule_encoder}
+test:
+  _target_: mlcl.raven.data.auxiliary_dataset.RavenAuxiliaryDataset
+  rule_encoder: ${mlcl.raven.dataset.rule_encoder}

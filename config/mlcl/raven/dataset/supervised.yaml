@@ -1,0 +1,8 @@
+defaults:
+  - base
+train:
+  _target_: mlcl.raven.data.dataset.RavenDataset
+val:
+  _target_: mlcl.raven.data.dataset.RavenDataset
+test:
+  _target_: mlcl.raven.data.dataset.RavenDataset

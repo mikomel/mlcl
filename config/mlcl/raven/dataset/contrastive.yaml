@@ -1,0 +1,8 @@
+defaults:
+  - auxiliary
+train:
+  _target_: mlcl.raven.data.contrastive_dataset.RavenContrastiveDataset
+val:
+  _target_: mlcl.raven.data.contrastive_dataset.RavenContrastiveDataset
+test:
+  _target_: mlcl.raven.data.contrastive_dataset.RavenContrastiveDataset

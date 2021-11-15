@@ -1,0 +1,2 @@
+_target_: mlcl.transition_strategy.FixedNumEpochsTransitionStrategy
+num_epochs: 3

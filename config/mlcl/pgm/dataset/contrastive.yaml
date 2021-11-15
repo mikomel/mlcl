@@ -1,0 +1,8 @@
+defaults:
+  - auxiliary
+train:
+  _target_: mlcl.pgm.data.contrastive_dataset.PgmContrastiveDataset
+val:
+  _target_: mlcl.pgm.data.contrastive_dataset.PgmContrastiveDataset
+test:
+  _target_: mlcl.pgm.data.contrastive_dataset.PgmContrastiveDataset

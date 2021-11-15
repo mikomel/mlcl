@@ -1,0 +1,62 @@
+train:
+  dataset_root_dir: ${datasets_dir}/${raven_dataset_name}
+  configurations:
+    - ${RavenConfiguration:CENTER_SINGLE}
+    - ${RavenConfiguration:DISTRIBUTE_FOUR}
+    - ${RavenConfiguration:DISTRIBUTE_NINE}
+    - ${RavenConfiguration:LEFT_CENTER_SINGLE_RIGHT_CENTER_SINGLE}
+    - ${RavenConfiguration:UP_CENTER_SINGLE_DOWN_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_CENTER_SINGLE_OUT_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_DISTRIBUTE_FOUR_OUT_CENTER_SINGLE}
+  splits:
+    - ${DatasetSplit:TRAIN}
+  augmentor:
+    _target_: mlcl.raven.data.augmentor.Augmentor
+    p: 0.5
+    transforms:
+      - ${Augmentation:VerticalFlip,p,0.25}
+      - ${Augmentation:HorizontalFlip,p,0.25}
+      - ${Augmentation:RandomRotate90,p,0.25}
+      - ${Augmentation:Rotate,p,0.25}
+      - ${Augmentation:Transpose,p,0.25}
+      - >-
+        ${Augmentation:OneOf,p,0.25,transforms,
+        ${List:
+        ${Augmentation:RandomGridShuffle,grid,${Tuple:2,2}},
+        ${Augmentation:RandomGridShuffle,grid,${Tuple:3,3}}}}
+      - >-
+        ${Augmentation:OneOf,p,0.5,transforms,
+        ${List:
+        ${Augmentation:Roll,p,0.4,max_horizontal_shift,10,max_vertical_shift,80},
+        ${Augmentation:HorizontalRoll,p,0.3,max_shift,80},
+        ${Augmentation:VerticalRoll,p,0.3,max_shift,80}}}
+    position_preserving_transforms:
+      - ${Augmentation:VerticalFlip,p,0.25}
+      - ${Augmentation:HorizontalFlip,p,0.25}
+      - ${Augmentation:RandomRotate90,p,0.25}
+      - ${Augmentation:Rotate,p,0.25}
+      - ${Augmentation:Transpose,p,0.25}
+val:
+  dataset_root_dir: ${datasets_dir}/${raven_dataset_name}
+  configurations:
+    - ${RavenConfiguration:CENTER_SINGLE}
+    - ${RavenConfiguration:DISTRIBUTE_FOUR}
+    - ${RavenConfiguration:DISTRIBUTE_NINE}
+    - ${RavenConfiguration:LEFT_CENTER_SINGLE_RIGHT_CENTER_SINGLE}
+    - ${RavenConfiguration:UP_CENTER_SINGLE_DOWN_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_CENTER_SINGLE_OUT_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_DISTRIBUTE_FOUR_OUT_CENTER_SINGLE}
+  splits:
+    - ${DatasetSplit:VAL}
+test:
+  dataset_root_dir: ${datasets_dir}/${raven_dataset_name}
+  configurations:
+    - ${RavenConfiguration:CENTER_SINGLE}
+    - ${RavenConfiguration:DISTRIBUTE_FOUR}
+    - ${RavenConfiguration:DISTRIBUTE_NINE}
+    - ${RavenConfiguration:LEFT_CENTER_SINGLE_RIGHT_CENTER_SINGLE}
+    - ${RavenConfiguration:UP_CENTER_SINGLE_DOWN_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_CENTER_SINGLE_OUT_CENTER_SINGLE}
+    - ${RavenConfiguration:IN_DISTRIBUTE_FOUR_OUT_CENTER_SINGLE}
+  splits:
+    - ${DatasetSplit:TEST}

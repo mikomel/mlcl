@@ -1,0 +1,6 @@
+defaults:
+  - supervised
+_target_: mlcl.pgm.module.auxiliary_module.PgmAuxiliaryModule
+auxiliary_loss_scaling: 1.0
+rule_dropout_probability: 0.5
+rule_encoder: ${mlcl.pgm.dataset.rule_encoder}

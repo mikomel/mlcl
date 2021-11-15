@@ -1,0 +1,6 @@
+defaults:
+  - auxiliary
+_target_: mlcl.raven.module.mlcl_module.RavenMLCLModule
+contrastive_loss_scaling: 1.0
+num_contrast_heads: 1
+contrast_embedding_size: 128

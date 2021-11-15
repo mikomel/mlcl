@@ -1,0 +1,12 @@
+defaults:
+  - supervised
+rule_encoder: ${PgmRuleEncoder:dense}
+train:
+  _target_: mlcl.pgm.data.auxiliary_dataset.PgmAuxiliaryDataset
+  rule_encoder: ${mlcl.pgm.dataset.rule_encoder}
+val:
+  _target_: mlcl.pgm.data.auxiliary_dataset.PgmAuxiliaryDataset
+  rule_encoder: ${mlcl.pgm.dataset.rule_encoder}
+test:
+  _target_: mlcl.pgm.data.auxiliary_dataset.PgmAuxiliaryDataset
+  rule_encoder: ${mlcl.pgm.dataset.rule_encoder}

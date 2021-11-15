@@ -1,0 +1,6 @@
+defaults:
+  - auxiliary
+_target_: mlcl.pgm.module.mlcl_module.PgmMLCLModule
+contrastive_loss_scaling: 1.0
+num_contrast_heads: 1
+contrast_embedding_size: 128

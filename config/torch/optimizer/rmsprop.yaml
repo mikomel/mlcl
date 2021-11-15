@@ -1,0 +1,4 @@
+_target_: torch.optim.RMSprop
+lr: 3e-4
+momentum: 0.99
+weight_decay: 0.0

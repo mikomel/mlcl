@@ -1,0 +1,6 @@
+defaults:
+  - supervised
+_target_: mlcl.raven.module.auxiliary_module.RavenAuxiliaryModule
+auxiliary_loss_scaling: 1.0
+rule_dropout_probability: 0.5
+rule_encoder: ${mlcl.raven.dataset.rule_encoder}

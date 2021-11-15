@@ -1,0 +1,20 @@
+trainer:
+  _target_: pytorch_lightning.Trainer
+  callbacks:
+    - _target_: pytorch_lightning.callbacks.EarlyStopping
+      monitor: val/loss
+      patience: 16
+      verbose: True
+    - _target_: pytorch_lightning.callbacks.ModelCheckpoint
+      verbose: True
+  logger:
+    - _target_: pytorch_lightning.loggers.WandbLogger
+      project: mlcl
+      log_model: True
+  max_epochs: 30
+  auto_select_gpus: True
+  gpus: 1
+  progress_bar_refresh_rate: 5
+  num_sanity_val_steps: 0
+  precision: 32
+  amp_level: O1

@@ -1,0 +1,5 @@
+defaults:
+  - default
+  - _self_
+  - override mlcl/raven/dataset: supervised
+  - override mlcl/raven/module: supervised

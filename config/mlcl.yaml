@@ -1,0 +1,18 @@
+defaults:
+  - default
+  - _self_
+  - override mlcl/pgm/dataset: contrastive
+  - override mlcl/pgm/module: mlcl
+  - override mlcl/raven/dataset: contrastive
+  - override mlcl/raven/module: mlcl
+pytorch_lightning:
+  trainer:
+    callbacks:
+      - _target_: pytorch_lightning.callbacks.EarlyStopping
+        monitor: val/loss
+        patience: 16
+        verbose: True
+      - _target_: pytorch_lightning.callbacks.ModelCheckpoint
+        verbose: True
+      - _target_: mlcl.training_strategy.ThreePhaseTrainingStrategy
+        transition_strategy: ${mlcl.transition_strategy}

@@ -1,0 +1,2 @@
+_target_: mlcl.models.scl.SCL
+image_size: 80

@@ -1,0 +1,8 @@
+defaults:
+  - base
+train:
+  _target_: mlcl.pgm.data.dataset.PgmDataset
+val:
+  _target_: mlcl.pgm.data.dataset.PgmDataset
+test:
+  _target_: mlcl.pgm.data.dataset.PgmDataset

@@ -1,0 +1,6 @@
+_target_: mlcl.models.copinet.CoPINet
+num_attr: 10
+num_rule: 6
+sample: False
+dropout: False
+image_size: 80

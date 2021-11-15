@@ -1,0 +1,19 @@
+defaults:
+  - mlcl/model: scl
+  - mlcl/pgm/dataset: supervised
+  - mlcl/pgm/module: supervised
+  - mlcl/raven/dataset: supervised
+  - mlcl/raven/module: supervised
+  - mlcl/transition_strategy: early_stopping
+  - pytorch_lightning: default
+  - torch/data_loader: default
+  - torch/optimizer: adam
+  - torch/scheduler: reduce_on_plateau
+  - _self_
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+datasets_dir: /app/datasets
+pgm_dataset_name: PGM
+raven_dataset_name: Balanced-RAVEN
+logs_dir: /app/logs
+seed: 42
