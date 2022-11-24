@@ -19,15 +19,15 @@ After building the image, it can be converted to an enroot image with `./scripts
 Next, the experiments can be run for instance as a [Slurm](https://slurm.schedmd.com/overview.html) job with the help of `./scripts/submit_{iraven,pgm}.sbatch` scripts.
 
 ## Bibliography
-[1] Małkiński, Mikołaj, and Jacek Mańdziuk. "Multi-Label Contrastive Learning for Abstract Visual Reasoning." arXiv
-preprint arXiv:2012.01944 (2020).
+[1] Małkiński, Mikołaj, and Jacek Mańdziuk. "Multi-label contrastive learning for abstract visual reasoning." IEEE Transactions on Neural Networks and Learning Systems (2022).
 
 ## Citations
 ```bibtex
-@article{malkinski2020multi,
-    title = {Multi-Label Contrastive Learning for Abstract Visual Reasoning},
-    author = {Ma{\l}ki{\'n}ski, Miko{\l}aj and Ma{\'n}dziuk, Jacek},
-    journal = {arXiv preprint arXiv:2012.01944},
-    year = {2020}
+@article{malkinski2022multi,
+  title={Multi-label contrastive learning for abstract visual reasoning},
+  author={Ma{\l}ki{\'n}ski, Miko{\l}aj and Ma{\'n}dziuk, Jacek},
+  journal={IEEE Transactions on Neural Networks and Learning Systems},
+  year={2022},
+  publisher={IEEE}
 }
 ```
